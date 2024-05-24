@@ -49,9 +49,39 @@ function isLoggedin(req,res,next){
   }
 }
 
-router.get("/profile", function(req,res,next){
+router.get("/profile",isLoggedin, function(req,res,next){
   res.render("profile")
 })
+
+router.get("/logout",isLoggedin,function(req,res,next){
+  try {
+    req.logOut(()=>{
+      res.redirect("/login")
+    })
+    
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+router.get("/reset-password",isLoggedin,async function(req,res,next){
+  res.render("resetpassword")
+})
+
+router.post("/reset-password",isLoggedin, async function(req,res,next){
+ try {
+  await req.user.changePassword(
+    req.body.oldpassword,
+    req.body.newpassword
+  );
+   await req.user.save();
+   res.redirect("/profile")
+  
+ } catch (error) {
+  console.log(error);
+ }
+
+} )
 
 
 module.exports = router;

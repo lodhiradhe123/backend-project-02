@@ -1,8 +1,10 @@
 <%- include("./partials/header") %>
 
-<div class="profile w-full h-screen bg-blue-300">
-    <div class="card w-1/4 h-52 bg-pink-100  ml-[39%]">
-        <div class="flex justify-center w-full">
+<div class="profile w-full h-screen bg-blue-300 p-1">
+<%- include("./partials/nav") %>
+
+    <div class="card w-1/4 rounded-lg mt-10 bg-pink-100  ml-[39%]">
+        <div class="flex justify-center w-full p-1">
         <div class="img w-32 h-32 bg-zinc-500 rounded-full text-center object-cover overflow-hidden">
             <img src="https://images.unsplash.com/photo-1610629737680-8a6daf3dadf7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFkdWx0fGVufDB8fDB8fHww" alt="">
         </div>
@@ -11,6 +13,9 @@
         <div class=" text-center w-full">
             <h1>name</h1>
             <h1>username</h1>
+            <a href="/logout">Log-Out</a>
+            <br>
+            <a href="/reset-password">Reset-password</a>
         </div>
        
     </div>
