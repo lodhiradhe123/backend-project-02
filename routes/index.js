@@ -83,5 +83,40 @@ router.post("/reset-password",isLoggedin, async function(req,res,next){
 
 } )
 
+router.get("/forget-mail",function(req,res,next){
+  res.render("forget-mail");
+})
+
+router.post("/forget-mail",async function(req,res,next){
+try {
+  const user = await User.findOne({email:req.body.email});
+  if(user){
+    res.redirect(`/forget-password/${user._id}`);
+  }else{
+    res.redirect("/forget-mail");
+  }
+} catch (error) {
+  
+}  
+});
+
+router.get("/forget-password/:id",function(req,res,next){
+  res.render("forget-password",{id:req.params.id})
+})
+
+router.post("/forget-password/:id",async function(req,res,next){
+ try {
+  const user = await User.findById(req.params.id);
+  console.log(user);
+  await user.setPassword(req.body.password);
+  await user.save();
+  res.redirect("/login");
+ } catch (error) {
+  console.log(error);
+  
+ }
+})
+
+
 
 module.exports = router;
