@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/main-page', function(req, res, next) {
+router.get('/main-page',isLoggedin, function(req, res, next) {
   res.render('mainpage');
 });
 
@@ -37,7 +37,7 @@ router.get("/login", function(req,res){
 })
 
 router.post("/login",passport.authenticate("local",{
-  successRedirect:"/profile",
+  successRedirect:"/main-page",
   failureRedirect:"/login"
 }), function(req,res,next){});
 

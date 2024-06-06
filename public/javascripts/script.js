@@ -29,8 +29,6 @@ tl.to(".firstright",{
 }
 
 const animate =function(){
-
-    
 document.querySelectorAll(".content01").forEach(function(ele){
     ele.addEventListener("mouseenter",function(){
             gsap.to(this.querySelectorAll(".element ,.elebtn"),{
@@ -44,7 +42,6 @@ document.querySelectorAll(".content01").forEach(function(ele){
              gsap.to(this.querySelector(".contentimg"),{
                 scale:3,
                 opacity:.5,
-                duration:1,
             
              })
              gsap.to(this.querySelector(".slide"),{
@@ -105,15 +102,41 @@ const fourth = function(){
         }
     })
     tl1.to(".length",{
-        translateX:"-220%"
+        translateX:"-220%",
+        duration:1
     },"b")
     
     tl1.to(".text",{
-        translateX:"-220%"
-    
-    
+        translateX:"-220%",
+        duration:1
+
     },"b")
 }
+
+const six = function(){
+    
+const tl11 = gsap.timeline({
+    scrollTrigger:{
+        trigger:".six",
+        scroller:"body",
+        // markers:"true",
+        start:"top -60%",
+        end: "top -200%",
+        scrub:"true"
+    }
+})
+
+tl11.to(".imgdiv",{
+    top:"0%"
+})
+tl11.to(".imgdiv01",{
+    top:"0%"
+})
+tl11.to(".imgdiv02",{
+    top:"0%"
+})
+}
+
 
 
 
@@ -121,4 +144,5 @@ const fourth = function(){
 
 fisrtpage();
 animate();
+six();
 fourth();
