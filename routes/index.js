@@ -9,11 +9,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index',{user:req.user});
 });
 
 router.get('/main-page',isLoggedin, function(req, res, next) {
-  res.render('mainpage');
+  res.render('mainpage',{user:req.user});
 });
 
 router.get("/register", function(req,res,next){
@@ -50,13 +50,13 @@ function isLoggedin(req,res,next){
 }
 
 router.get("/profile",isLoggedin, function(req,res,next){
-  res.render("profile")
+  res.render("profile",{user:req.user})
 })
 
 router.get("/logout",isLoggedin,function(req,res,next){
   try {
     req.logOut(()=>{
-      res.redirect("/login")
+      res.redirect("/")
     })
     
   } catch (error) {
@@ -75,7 +75,7 @@ router.post("/reset-password",isLoggedin, async function(req,res,next){
     req.body.newpassword
   );
    await req.user.save();
-   res.redirect("/profile")
+   res.redirect("/login")
   
  } catch (error) {
   console.log(error);

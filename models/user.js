@@ -4,7 +4,10 @@ const plm = require("passport-local-mongoose");
 const uerSchema = mongoose.Schema({
     name:String,
     username:String,
-    email:String,
+    email:{
+        type:String,
+        unique:true,
+    },
     password:Number,
 })
 
