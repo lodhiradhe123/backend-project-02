@@ -1,26 +1,57 @@
 <%- include("./partials/header") %>
 
-<div class="profile w-full h-screen bg-blue-300 p-1">
+<div class="profile w-full n bg-zinc-300 ">
 <%- include("./partials/nav") %>
 
-    <div class="card w-1/4 rounded-lg mt-10 bg-pink-100  ml-[39%]">
-        <div class="flex justify-center w-full p-1">
-        <div class="img w-32 h-32 bg-zinc-500 rounded-full text-center object-cover overflow-hidden">
+    <div class="card w-1/4 rounded-lg mt-10">
+        <div class="flex  w-full p-1 ">
+        <div class="img w-32 h-32 bg-zinc-300 rounded-full  object-cover overflow-hidden">
             <img src="https://images.unsplash.com/photo-1610629737680-8a6daf3dadf7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFkdWx0fGVufDB8fDB8fHww" alt="">
         </div>
 
         </div>
-        <div class=" text-center w-full">
-            <h1 class="text-2xl font-bold"><%=user.name%></h1>
-            <h1><%=user.username%></h1>
-            <h1><%=user.email%></h1>
+        <div class=" text-start w-full p-5">
+            <h1 class="text-2xl font-bold">Name- <%=user.name%></h1>
+            <h1>User_ame- <%=user.username%></h1>
+            <h1>email-<%=user.email%></h1>
             <br>
-            <a href="/logout">Log-Out</a>
-            <br>
-            <a href="/reset-password">Reset-password</a>
+           <div class="flex gap-5 gap-10">
+            <a href="/logout" class="text-2xl bg-blue-200 hover:bg-yellow-100  border-2 border-black rounded-lg p-4 "><i class="ri-logout-circle-line"><hr ></i></a>
+            <a href="/reset-password" class="text-2xl text-center bg-blue-200 hover:bg-yellow-100 p-2 border-2 border-black rounded-lg">Reset <i class="ri-key-2-line"></i></a> 
+            <%if(user.role=="seller"){%>
+                <a href="/product" class="text-2xl text-center bg-blue-200 hover:bg-yellow-100  border-2 border-black rounded-lg">Create <i class="ri-add-box-line"></i></a>
+              <%}%>
+           </div>
+
         </div>
+        <!--  -->
+        
        
     </div>
+    <!--  -->
+
+    <div class="profile w-full  bg-zinc-300 px-10 flex flex-wrap  gap-10 justify-center">
+
+        <%myproducts.forEach((ele)=>{%>
+            <div class="card w-1/5  rounded-lg mt-10 bg-zinc-100 p-4  ">
+                <h1 class="text-2xl font-bold capitalize"><%=ele.productname%></h1>
+                <br>
+                <div class="productimage w-full h-52 bg-blue-300 rounded-lg">
+                    <img src="/images/<%=ele.image%>" alt="" class="object-cover w-full h-full rounded-lg ">
+                </div>
+                <h1 class="text-xl font-light overflow-auto capitalize "><%=ele.description%></h1>
+                <h1 class="text-xl font-bold text-blue-600 ">Rs-<%=ele.price%></h1>
+                <div class="flex justify-between text-2xl">
+                    <a href="/product/delete/<%=ele._id%>" class=" text-red-400 capitalize">delete</a>
+                    <a href="/product/edit/<%=ele._id%>">edit</a>
+                </div>
+                
+            </div>
+        
+        
+        <%})%>    
+        
+        </div>
     
 
 </div>

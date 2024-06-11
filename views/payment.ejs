@@ -1,0 +1,35 @@
+
+<%-include("./partials/header") %>
+
+<div class="product w-full  text-center flex justify-center ">
+    <div class="form w-1/2 h-auto bg-blue-300 rounded-lg p-10">
+       <div class="flex justify-between">
+       <a href="/product/allproducts"><i class="text-3xl ri-arrow-left-fill"></i></a>
+        <h1 class="text-3xl capitalize" >Payment!</h1>
+       </div>
+        <br>
+       <div class="flex justify-evenly">
+        <img src="/images/<%=product.image%>" alt="" class="w-32 h-32 rounded-lg mb-2">
+       <div class="text-start">
+        <h1 class="text-2xl font-bold capitalize">pName-<%=product.productname%></h1>
+        <h1 class="text-xl font-semibold capitalize">ds..<%=product.description%></h1>
+        <hr>
+        <h1 class="text-xl  text-yellow-300 font-semibold">Rs-<%=product.price%></h1>
+       </div>
+       </div>
+        <form action="/payment" method=""  >
+            <input  type="text" name="quantity" id="" placeholder="enter product quantity" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black p-2 mb-4">
+            <input  type="text" name="colour" id="" placeholder=" colour- red ,black, white" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black p-2 mb-4">
+            <input  type="text" name="coupan" id="" placeholder="add coupon" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black p-2 mb-4">
+            <input value="buy" type="submit" name="" id="" class="w-1/5 text-2xl bg-blue-100 hover:bg-red-100 rounded-lg border-2 border-black p-2 mb-4 font-semibold capitalize">
+            <input value="add to cart" type="submit" name="" id="" class=" text-2xl bg-blue-100 hover:bg-red-100 rounded-lg border-2 border-black  mb-4 ml-10 p-2 capitalize">
+
+        </form>
+        <br>
+        <h1 class="text-3xl capitalize font-bold" >Thank you 😊 !</h1>
+
+
+    </div>
+
+</div>
+<%-include("./partials/footer")%>

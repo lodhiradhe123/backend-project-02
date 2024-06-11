@@ -1,0 +1,18 @@
+<%-include("./partials/header") %>
+<div class="product w-full  text-center flex justify-center ">
+    <div class="form w-1/2 h-auto bg-blue-300 rounded-lg p-10">
+        <h1 class="text-3xl capitalize" >create your product !</h1>
+        <br>
+        <form action="/product/productdata" method="post" enctype="multipart/form-data" >
+            <input type="file" name="image" id="" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black py-2 mb-4">
+            <input type="text" name="productname" id="" placeholder="enter product name" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black py-2 mb-4">
+            <input type="text" name="description" id="" placeholder="enter product description" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black py-2 mb-4">
+            <input type="text" name="price" id="" placeholder="enter product price" class="w-full text-2xl bg-pink-100 rounded-lg border-2 border-black py-2 mb-4">
+            <input type="submit" name="" id="" class="w-1/5 text-2xl bg-blue-100 hover:bg-red-100 rounded-lg border-2 border-black py-2 mb-4">
+
+        </form>
+
+    </div>
+
+</div>
+<%-include("./partials/footer") %>

@@ -2,17 +2,21 @@ var express = require('express');
 var router = express.Router();
 
 const User = require("../models/user");
+const productSchema = require("../models/productSchema");
+
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
 passport.use(new LocalStrategy(User.authenticate()));
+
+const isLoggedin = require("../utils/auth");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index',{user:req.user});
 });
 
-router.get('/main-page',isLoggedin, function(req, res, next) {
+router.get('/main-page', function(req, res, next) {
   res.render('mainpage',{user:req.user});
 });
 
@@ -22,8 +26,8 @@ router.get("/register", function(req,res,next){
 
 router.post("/register",async function(req,res){
   try {
-    const {name,username , email, password}=req.body;
-    const userdata = await User.register({name,username,email},password);
+    const {name,username , email, role,password}=req.body;
+    const userdata = await User.register({name,username,email,role},password);
     // await userdata.save();
     res.redirect("/login");
     
@@ -41,16 +45,11 @@ router.post("/login",passport.authenticate("local",{
   failureRedirect:"/login"
 }), function(req,res,next){});
 
-function isLoggedin(req,res,next){
-  if(req.isAuthenticated()){
-    next();
-  }else{
-    res.redirect("/login")
-  }
-}
 
-router.get("/profile",isLoggedin, function(req,res,next){
-  res.render("profile",{user:req.user})
+
+router.get("/profile",isLoggedin,async function(req,res,next){
+  const myproducts = await productSchema.find({user:req.user._id});
+  res.render("profile",{user:req.user,myproducts})
 })
 
 router.get("/logout",isLoggedin,function(req,res,next){

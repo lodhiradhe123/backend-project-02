@@ -1,0 +1,26 @@
+<%- include("./partials/header") %>
+
+<div class="profile w-full h-screen bg-zinc-500 p-2 flex wrap gap-10">
+
+<%myproducts.forEach((ele)=>{%>
+    <div class="card w-1/4 h-96 rounded-lg mt-10 bg-zinc-100 p-4  ">
+        <h1 class="text-2xl font-bold"><%=ele.productname%></h1>
+        <br>
+        <div class="productimage w-full h-52 bg-blue-300 rounded-lg">
+            <img src="/images/<%=ele.image%>" alt="" class="object-cover w-full h-full rounded-lg ">
+        </div>
+        <h1 class="text-xl font-light"><%=ele.description%></h1>
+        <h1 class="text-xl font-bold text-blue-600 ">Rs-<%=ele.price%></h1>
+        <div class="flex justify-between text-2xl">
+            <a href="/delete/<%=ele._id%>">delete</a>
+            <a href="/edit/<%=ele._id%>">edit</a>
+        </div>
+        
+    </div>
+
+
+<%})%>    
+
+</div>
+
+<%- include("./partials/footer") %>

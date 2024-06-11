@@ -8,7 +8,10 @@ const uerSchema = mongoose.Schema({
         type:String,
         unique:true,
     },
-    password:Number,
+    password:String,
+    role:{type:String,
+        enum:["seller","user"]
+    }
 })
 
 uerSchema.plugin(plm);
