@@ -9,19 +9,23 @@
 <body>
         
         
-    <div class="nav w-full h-12 bg-zinc-200 rounded-lg flex gap-10 justify-between  text-3xl ">
+    <div class="sticky  nav w-full h-12 bg-zinc-200 rounded-lg flex gap-10 justify-between  text-3xl font-[foldit]">
         <%if(user){%>
                 <div class="left w-full flex gap-10 px-3 justify-between items-center">
                     <div class="flex gap-10 font-bold text-black">
                         <a href="/">Home</a>
                     <a href="/">About</a>
-                    </div>
-                    <a href="/profile"><img src="/images/in-en.png" alt="" class="w-8 h-8 rounded-full"></a>
-                </div>
+                        </div>
+                        <a href="/profile"><img src="/images/in-en.png" alt="" class="w-8 h-8 rounded-full"></a>
+                        </div>
 
         <%}else{%>
-            <div class="right px-3 w-full text-black">
+            <div class="right px-3 w-full text-black flex justify-between">
                 <a href="/register">Register</a>
+                <a href="/">About</a>
+                <a href="/login">Login</a>
+
+
             </div>
 
         <%}%>
