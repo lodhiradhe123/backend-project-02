@@ -6,21 +6,21 @@ const tl = gsap.timeline({
         trigger:".second",
         scroller:"body",
         // markers:true,
-        start:"top 50%",
+        start:"top 40%",
         end:"top 10%",
         scrub:true,
     }
 });
   
 tl.to(".firstleft",{
-    x:"-100%",
+    x:"-30%",
     opacity:0.5,
     duration:1,
    
 
 },"a")
 tl.to(".firstright",{
-    x:"100%",
+    x:"30%",
     opacity:0,
     duration:1,
    

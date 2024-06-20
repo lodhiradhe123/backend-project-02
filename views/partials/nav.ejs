@@ -7,20 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="nav w-36  relative  absolute z-[100]  text-white  ">
-        <div class="icon flex flex-col items-center">
+    <nav class="nav w-36    absolute z-[100]  text-white  ">
+          <div class="icon flex flex-col items-center">
             <i class="iconimg fixed text-4xl mt-5 ml-[-4%] ri-indent-increase "></i>
           </div>
           <br>
         <div class="hiddennav fixed flex flex-col items-center  gap-10 top-20 filter backdrop-brightness-50  left-[-100%]">
 
         <%if(user){%>
+          <a href="/" class=" ele   text-2xl capitalize font-bold hover:underline font-[foldit]">Home</a>
           <a href="/profile" class=" ele   text-2xl capitalize font-bold hover:underline font-[foldit]">profile</a>
           <a href="/main-page" class=" ele text-2xl capitalize font-bold hover:underline font-[foldit]">home</a>
           <a href="/about" class=" ele text-2xl capitalize font-bold hover:underline font-[foldit]">about</a>
           <a href="/logout" class=" ele text-2xl capitalize font-bold hover:underline font-[foldit]">logout</a>
 
         <%}else{%>
+          <a href="/" class=" ele   text-2xl capitalize font-bold hover:underline font-[foldit]">Home</a>
+
           <a href="/register" class=" ele text-2xl capitalize font-bold hover:underline font-[foldit]">register</a>
           <a href="/login" class=" ele text-2xl capitalize font-bold hover:underline font-[foldit]">login</a>
           <a href="" class=" ele text-2xl capitalize font-bold hover:underline font-[foldit]">about</a>
