@@ -34,7 +34,7 @@ router.post(
   }
 );
 
-router.get("/allproducts", isLoggedin, async function (req, res, next) {
+router.get("/allproducts",  async function (req, res, next) {
   try {
     const allproduct = await productSchema.find();
     res.render("allproducts", { allproduct });
